@@ -1,0 +1,69 @@
+<!doctype html>
+<head>
+	<script src=scripts/jquery-1.7.1.min.js></script>
+	<link href=fonts/DroidSans/DroidSans.css >
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<style>
+		body {
+			font: 18px "DroidSans";
+		}
+
+		#tombstone div span {
+			display: hidden;
+		}
+	</style>
+
+	<script>
+		function toggle(language) {
+			$('#tombstone > div > span').hide();
+			$('#tombstone > div > span[lang|='+language+']').show();
+		}
+
+		$(function(){
+			toggle("en")
+		})
+	</script>
+</head>
+
+<body>
+	<header></header>
+	
+	<nav>
+		<ul>
+			<li><a href='javascript:toggle("en")'>En</a>
+			<li><a href='javascript:toggle("cn")'>中文</a>
+			<li><a href='javascript:toggle("bg")'>Бг</a>
+		</ul>
+	</nav>
+
+	<section id='tombstone'>
+		<div id='artist'>
+			<span lang=en>
+				ME
+			</span>
+			<span lang=cn>
+				么
+			</span>
+			<span lang=bg>
+				ми
+			</span>
+		</div>
+
+		<div id='information'>
+			<span lang=en>
+				This is an awesome piece of art
+			</span>
+			<span lang=cn>
+				这是艺术品的一件伟大
+			</span>
+			<span lang=bg>
+				Това е страхотно парче на изкуството
+			</span>
+		</div>
+
+	</section>
+
+	<footer></footer>
+
+</body>
