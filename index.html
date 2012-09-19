@@ -1,69 +1,71 @@
 <!doctype html>
-<head>
-	<script src=scripts/jquery-1.7.1.min.js></script>
-	<link href=fonts/DroidSans/DroidSans.css >
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script src=scripts/jquery-1.7.1.min.js></script>
+<link href=fonts/DroidSans/DroidSans.css >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<style>
-		body {
-			font: 18px "DroidSans";
-		}
+<style>
+  a {
+    background: black;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid white;
+    color: white;
+    display:block;
+    padding:2px;
+    margin:10px;
+    width:80px;
+    text-decoration: none;
+  }
+  .active {
+    color:black;
+    background:white;
+  }
+  body {
+    background: black;
+    font: 28px "DroidSans";
+    color: white;
+  }
+  li {
+    list-style-type: none;
+  }
+  #tombstone {
+    left:200px;
+    top:20px;
+    position:absolute;
+  }
+  #tombstone span {
+    display: none;
+  }
+</style>
 
-		#tombstone div span {
-			display: hidden;
-		}
-	</style>
+<script>
+  function choose(el) {
+    language = el.getAttribute('lang');
+    $('#tombstone span').hide();
+    $('#tombstone span[lang|='+language+']').show();
+    $('a').removeClass('active');
+    $(el).addClass('active');
+  }
+</script>
 
-	<script>
-		function toggle(language) {
-			$('#tombstone > div > span').hide();
-			$('#tombstone > div > span[lang|='+language+']').show();
-		}
+<nav>
+  <ul>
+    <li><a lang=en href=#en onclick="choose(this)">En</a>
+    <li><a lang=cn href=#cn onclick="choose(this)">中文</a>
+    <li><a lang=bg href=#bg onclick="choose(this)">Бг</a>
+  </ul>
+</nav>
 
-		$(function(){
-			toggle("en")
-		})
-	</script>
-</head>
-
-<body>
-	<header></header>
-	
-	<nav>
-		<ul>
-			<li><a href='javascript:toggle("en")'>En</a>
-			<li><a href='javascript:toggle("cn")'>中文</a>
-			<li><a href='javascript:toggle("bg")'>Бг</a>
-		</ul>
-	</nav>
-
-	<section id='tombstone'>
-		<div id='artist'>
-			<span lang=en>
-				ME
-			</span>
-			<span lang=cn>
-				么
-			</span>
-			<span lang=bg>
-				ми
-			</span>
-		</div>
-
-		<div id='information'>
-			<span lang=en>
-				This is an awesome piece of art
-			</span>
-			<span lang=cn>
-				这是艺术品的一件伟大
-			</span>
-			<span lang=bg>
-				Това е страхотно парче на изкуството
-			</span>
-		</div>
-
-	</section>
-
-	<footer></footer>
-
-</body>
+<section id='tombstone'>
+    <span lang=en>
+      ME <br>
+      This is an awesome piece of art
+    </span>
+    <span lang=cn>
+      么 <br>
+      这是艺术品的一件伟大
+    </span>
+    <span lang=bg>
+      ми <br>
+      Това е страхотно парче на изкуството
+    </span>
+</section>
